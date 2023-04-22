@@ -46,6 +46,9 @@ public class ChessMatch {
         if (!board.thereIsAPieace(position)) {
             throw new ChessExcepation("Não existe peça na posição de origem.");
         }
+        if (!board.piece(position).isThereAnyPossibleMove()) {
+            throw new ChessExcepation("Não existe movimentos possiveis para essas peça");
+        }
     }
 
     private void placeNewPiece(char column, int row, ChessPiece piece) {
