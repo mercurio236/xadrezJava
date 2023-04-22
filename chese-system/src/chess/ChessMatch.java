@@ -1,6 +1,9 @@
 package chess;
 
 import boardgame.Board;
+import boardgame.Position;
+import chess.pieces.King;
+import chess.pieces.Rook;
 
 public class ChessMatch {
     private Board board;
@@ -8,6 +11,7 @@ public class ChessMatch {
     // quem tem definir o tamanho do tabuleiro de xadrez é essa classe
     public ChessMatch() {
         board = new Board(8, 8);
+        initialSetup();
     }
 
     // esse metodo vai ter que retornar uma matriz de peças de xadrez, correspodente
@@ -20,5 +24,10 @@ public class ChessMatch {
             }
         }
         return mat;
+    }
+
+    public void initialSetup() {
+        board.placePiece(new Rook(board, Color.WHITE), new Position(2, 1));
+        board.placePiece(new King(board, Color.BLACK), new Position(0, 4));
     }
 }
