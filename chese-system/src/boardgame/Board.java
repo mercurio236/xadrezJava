@@ -45,16 +45,10 @@ public class Board {
 
     // metodo auxiliar para testar
     private boolean positionExists(int row, int column) {
-        if (!positionExists(row, column)) {
-            throw new BoardException("Não existe essa posição no tabuleiro");
-        }
         return row >= 0 && row < rows && column >= 0 && column < columns;
     }
 
     public boolean positionExists(Position position) {
-        if (!positionExists(position)) {
-            throw new BoardException("Não existe essa posição no tabuleiro");
-        }
         return positionExists(position.getRow(), position.getColumn());
     }
 
