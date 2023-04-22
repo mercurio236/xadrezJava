@@ -31,6 +31,7 @@ public class ChessMatch {
         Position source = sourcePosition.toPosition();
         Position target = targetPosition.toPosition();
         validadeSourcePosition(source);
+        validadeTargetPosition(source, target);
         Piece capturePiece = makeMove(source, target);
         return (ChessPiece) capturePiece;
     }
@@ -48,6 +49,12 @@ public class ChessMatch {
         }
         if (!board.piece(position).isThereAnyPossibleMove()) {
             throw new ChessExcepation("Não existe movimentos possiveis para essas peça");
+        }
+    }
+
+    private void validadeTargetPosition(Position source, Position target) {
+        if (!board.piece(source).possibleMove(target)) {
+            throw new ChessExcepation("A peça escolhida não pode se mover para a posição de destino.");
         }
     }
 
