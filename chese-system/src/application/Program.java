@@ -3,7 +3,6 @@ package application;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import boardgame.Board;
 import chess.ChessExcepation;
 import chess.ChessMatch;
 import chess.ChessPiece;
@@ -18,7 +17,7 @@ public class Program {
         while (true) {
             try {
                 UI.clearScreen();
-                UI.printBoard(chessMatch.getPieces());
+                UI.printMath(chessMatch);
                 System.out.println();
                 System.out.print("Origem: ");
                 ChessPosition source = UI.readChessPosition(sc);
